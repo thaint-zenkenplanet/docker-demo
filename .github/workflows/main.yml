@@ -16,8 +16,8 @@ jobs:
         name: Login to Docker Hub
         uses: docker/login-action@v2
         with:
-          username: ${{ thaint16 }}
-          password: ${{ dckr_pat_BK_0GUvIaN0aTTr4LePUp3xmgJY }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
@@ -28,4 +28,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ thaint16 }}/clockbox:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/clockbox:latest
